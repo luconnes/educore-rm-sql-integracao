@@ -271,7 +271,6 @@ elif menu == "2. CRUD de Alunos e Matrículas":
 # ============================================================================
 elif menu == "3. Notas e Frequência":
     st.subheader("Lançamento de Notas e Faltas")
-    st.info("Ao salvar notas ou faltas abaixo, a Trigger `trg_NotasFrequencia_Automacao` recalcula automaticamente a situação da matrícula (Média >= 7.0 e Frequência >= 75%) e grava a alteração em `LogAuditoriaDados`.")
 
     df_mat = query_df(
         """
