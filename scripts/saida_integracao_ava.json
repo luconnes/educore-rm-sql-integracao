@@ -1,0 +1,35 @@
+[
+  {
+    "ra": "20262101",
+    "nome": "Mariana Albuquerque Cavalcanti",
+    "email_institucional": "mariana.cavalcanti@aluno.educore.edu.br",
+    "curso": "Ciência da Computação",
+    "turmas_habilitadas": [
+      "20262-CC-BD1-A",
+      "20262-CC-ES2-A"
+    ],
+    "sincronizado_em": "2026-11-23T01:25:29"
+  },
+  {
+    "ra": "20262102",
+    "nome": "João Pedro Vasconcelos Lima",
+    "email_institucional": "joao.vasconcelos@aluno.educore.edu.br",
+    "curso": "Análise e Desenvolvimento de Sistemas",
+    "turmas_habilitadas": [
+      "20262-ADS-INT-A",
+      "20262-ADS-DW-A"
+    ],
+    "sincronizado_em": "2026-11-23T01:25:29"
+  },
+  {
+    "ra": "20262103",
+    "nome": "Beatriz Montenegro Lins",
+    "email_institucional": "beatriz.lins@aluno.educore.edu.br",
+    "curso": "Direito",
+    "turmas_habilitadas": [
+      "20262-DIR-CIV-A",
+      "20262-DIR-TRB-A"
+    ],
+    "sincronizado_em": "2026-11-23T01:25:29"
+  }
+]

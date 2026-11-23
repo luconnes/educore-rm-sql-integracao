@@ -1,0 +1,52 @@
+﻿[
+  {
+    "ra": "20262101",
+    "nome_completo": "Mariana Albuquerque Cavalcanti",
+    "cpf": "39184726501",
+    "email": "mariana.cavalcanti@aluno.educore.edu.br",
+    "data_nascimento": "2005-04-12",
+    "codigo_curso": "CC-01",
+    "codigo_bolsa": "MERITO_20",
+    "data_ingresso": "2026-08-03"
+  },
+  {
+    "ra": "20262102",
+    "nome_completo": "João Pedro Vasconcelos Lima",
+    "cpf": "48291037412",
+    "email": "joao.vasconcelos@aluno.educore.edu.br",
+    "data_nascimento": "2004-09-23",
+    "codigo_curso": "ADS-02",
+    "codigo_bolsa": "PROUNI_50",
+    "data_ingresso": "2026-08-03"
+  },
+  {
+    "ra": "20262103",
+    "nome_completo": "Beatriz Montenegro Lins",
+    "cpf": "59302841923",
+    "email": "beatriz.lins@aluno.educore.edu.br",
+    "data_nascimento": "2006-01-19",
+    "codigo_curso": "DIR-03",
+    "codigo_bolsa": "SEM_BOLSA",
+    "data_ingresso": "2026-08-03"
+  },
+  {
+    "ra": "20262104",
+    "nome_completo": "Lucas Silva Andrade (Teste Idempotência)",
+    "cpf": "10001234567",
+    "email": "duplicado@aluno.educore.edu.br",
+    "data_nascimento": "2004-02-26",
+    "codigo_curso": "CC-01",
+    "codigo_bolsa": "SEM_BOLSA",
+    "data_ingresso": "2026-08-03"
+  },
+  {
+    "ra": "20262105",
+    "nome_completo": "Rafael Siqueira (Teste Curso Inválido)",
+    "cpf": "71928374655",
+    "email": "rafael.erro@aluno.educore.edu.br",
+    "data_nascimento": "2003-11-05",
+    "codigo_curso": "ENG-99",
+    "codigo_bolsa": "CONVENIO_30",
+    "data_ingresso": "2026-08-03"
+  }
+]
