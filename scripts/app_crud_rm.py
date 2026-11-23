@@ -106,7 +106,7 @@ if menu == "1. Painel Gerencial":
 # MÓDULO 2: CRUD DE ALUNOS E MATRÍCULAS
 # ============================================================================
 elif menu == "2. CRUD de Alunos e Matrículas":
-    st.subheader("Gestão Discente — Create, Read, Update e Delete")
+    st.subheader("Gestão Discente")
 
     aba_read, aba_create, aba_update, aba_delete = st.tabs(
         ["📋 Consultar", "➕ Novo Aluno", "✏️ Editar Aluno", "🗑️ Excluir Aluno"]
