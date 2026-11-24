@@ -1,4 +1,4 @@
-﻿# EduCore RM — Simulador de Núcleo Acadêmico, Financeiro e Integração
+# EduCore RM — Simulador de Núcleo Acadêmico, Financeiro e Integração
 
 Projeto prático desenvolvido em **SQL Server (T-SQL)** e **Python** simulando as rotinas centrais de back-end, regras de negócio, governança de dados e integrações de um ERP educacional inspirado no **TOTVS RM (Educacional e Fluxus)**.
 
@@ -22,16 +22,15 @@ Projeto prático desenvolvido em **SQL Server (T-SQL)** e **Python** simulando a
 ## Estrutura do Repositório
 
     ├── sql/
-    │   ├── 01_schema_e_seed.sql                  # Modelagem relacional (DDL), índices e carga inicial (2026.2)
-    │   ├── 02_seguranca_auditoria_automacao.sql  # Triggers, Stored Procedure batch, Logs LGPD e Roles (RBAC)
-    │   └── 03_views_relatorios_cubos.sql         # Views analíticas (Cubos) e regra de elegibilidade de rematrícula
+    │   ├── 01_schema_e_seed.sql                 # DDL e carga inicial
+    │   ├── 02_seguranca_auditoria_automacao.sql # Triggers, Procedures, Auditoria e RBAC
+    │   └── 03_views_relatorios_cubos.sql        # Views analíticas (Cubos)
     ├── scripts/
-    │   ├── integrador_rm.py                      # Automação Python + pyodbc para matrícula e geração financeira
-    │   ├── novas_matriculas_vestibular.json      # Payload de entrada (casos válidos, duplicidade e erro tratado)
-    │   └── saida_integracao_ava.json             # Payload de saída gerado para provisionamento no AVA
-    ├── docs/                                     # Espaço para evidências, prints e cubo analítico (Excel/Power BI)
-    └── requirements.txt                          # Dependências Python (pyodbc)
-
+    │   ├── app_crud_rm.py                       # Interface web (Streamlit)
+    │   ├── integrador_rm.py                     # Integração JSON -> SQL Server
+    │   ├── novas_matriculas_vestibular.json     # Payload de entrada
+    │   └── saida_integracao_ava.json            # Payload de saída (AVA)
+    └── requirements.txt                         # Dependências Python
 ---
 
 ## Como Executar Localmente
