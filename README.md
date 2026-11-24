@@ -19,19 +19,6 @@ Projeto prático desenvolvido em **SQL Server (T-SQL)** e **Python** simulando a
 
 ---
 
-## Estrutura do Repositório
-
-    ├── sql/
-    │   ├── 01_schema_e_seed.sql                 # DDL e carga inicial
-    │   ├── 02_seguranca_auditoria_automacao.sql # Triggers, Procedures, Auditoria e RBAC
-    │   └── 03_views_relatorios_cubos.sql        # Views analíticas (Cubos)
-    ├── scripts/
-    │   ├── app_crud_rm.py                       # Interface web (Streamlit)
-    │   ├── integrador_rm.py                     # Integração JSON -> SQL Server
-    │   ├── novas_matriculas_vestibular.json     # Payload de entrada
-    │   └── saida_integracao_ava.json            # Payload de saída (AVA)
-    └── requirements.txt                         # Dependências Python
----
 
 ## Como Executar Localmente
 
