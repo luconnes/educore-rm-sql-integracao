@@ -43,3 +43,115 @@ Projeto prático desenvolvido em **SQL Server (T-SQL)** e **Python** simulando a
 
        pip install -r requirements.txt
        python scripts/integrador_rm.py
+
+---
+
+## Fluxo de Arquitetura e Integração
+
+```mermaid
+flowchart LR
+    subgraph Externo["Sistemas Externos"]
+        JSON_IN["novas_matriculas_vestibular.json"]
+        JSON_OUT["saida_integracao_ava.json"]
+    end
+
+    subgraph App["Camada Python"]
+        INT["integrador_rm.py (ETL / pyodbc)"]
+        UI["app_crud_rm.py (Interface Web Streamlit)"]
+    end
+
+    subgraph DB["SQL Server: EduCore_RM_Simulador"]
+        CORE[("Núcleo Acadêmico e Financeiro\nAlunos | Turmas | Matrículas | Parcelas")]
+        TRG{{"Triggers e Procedures\nCálculo Nota/Falta + Fechamento Diário"}}
+        LOG[("Governança e Auditoria\nLogAuditoriaDados | LogIntegracao")]
+        CUBOS["Views Analíticas (Cubos)\nInadimplência | Ocupação | Rematrícula"]
+    end
+
+    JSON_IN --> INT
+    INT -- "Transação SQL" --> CORE
+    INT -- "Provisionamento AVA" --> JSON_OUT
+    UI <--> |"CRUD e Consultas"| CORE
+    CORE -- "AFTER INSERT/UPDATE" --> TRG
+    TRG -- "Atualiza Situação" --> CORE
+    TRG -- "Rastreabilidade LGPD" --> LOG
+    INT -- "Registra Execução" --> LOG
+    CORE --> CUBOS
+    CUBOS --> UI
+```
+
+---
+
+## Diagrama Entidade-Relacionamento (SQL Server)
+
+```mermaid
+erDiagram
+    PeriodosLetivos ||--o{ Turmas : "oferta_em"
+    PeriodosLetivos ||--o{ LancamentosFinanceiros : "referencia"
+    Cursos ||--o{ Disciplinas : "possui_grade"
+    Cursos ||--o{ Alunos : "matricula_em"
+    Bolsas ||--o{ Alunos : "aplica_desconto"
+    Disciplinas ||--o{ Turmas : "abre"
+    Alunos ||--o{ LancamentosFinanceiros : "gera"
+    Alunos ||--o{ Matriculas : "cursa"
+    Turmas ||--o{ Matriculas : "recebe"
+    Matriculas ||--|| NotasFrequencia : "avalia"
+
+    PeriodosLetivos {
+        int IdPeriodo PK
+        varchar CodigoPeriodo UK
+        bit Ativo
+    }
+    Cursos {
+        int IdCurso PK
+        varchar CodigoCurso UK
+        varchar NomeCurso
+        decimal ValorMensalidadeBase
+    }
+    Bolsas {
+        int IdBolsa PK
+        varchar CodigoBolsa UK
+        decimal PercentualDesconto
+    }
+    Disciplinas {
+        int IdDisciplina PK
+        int IdCurso FK
+        varchar CodigoDisciplina UK
+        varchar NomeDisciplina
+    }
+    Alunos {
+        int IdAluno PK
+        varchar RA UK
+        varchar CPF UK
+        int IdCurso FK
+        int IdBolsa FK
+        varchar StatusAcademico
+    }
+    Turmas {
+        int IdTurma PK
+        int IdDisciplina FK
+        int IdPeriodo FK
+        varchar CodigoTurma UK
+        int VagasTotais
+    }
+    LancamentosFinanceiros {
+        int IdLancamento PK
+        int IdAluno FK
+        int IdPeriodo FK
+        varchar Competencia
+        decimal ValorLiquido
+        varchar StatusPagamento
+    }
+    Matriculas {
+        int IdMatricula PK
+        int IdAluno FK
+        int IdTurma FK
+        varchar SituacaoMatricula
+    }
+    NotasFrequencia {
+        int IdNotaFreq PK
+        int IdMatricula FK
+        decimal Nota1
+        decimal Nota2
+        int Faltas
+    }
+```
